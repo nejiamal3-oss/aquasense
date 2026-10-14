@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite it as below."
+type: dataset
+title: "AquaSense-ICS: A Hybrid Real-Simulated Cyber-Physical Dataset and Leakage-Aware Benchmark for Smart Water Quality Monitoring and Attack Detection"
+version: "1.0"
+doi: 10.5281/zenodo.xxxxxxx
+date-released: 2026-10-13
+license: CC-BY-4.0
+repository-code: "https://github.com/<votre-user>/aquasense-ics"
+url: "https://doi.org/10.5281/zenodo.xxxxxxx"
+authors:
+  - family-names: Neji
+    given-names: Amal
+    affiliation: "Digital Research Center of Sfax (CRNS), Laboratory SM@RTS, Sfax, Tunisia"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Fourati
+    given-names: Mohamed
+    affiliation: "Digital Research Center of Sfax (CRNS), Laboratory SM@RTS, Sfax, Tunisia"
+  - family-names: Chaari Fourati
+    given-names: Lamia
+    affiliation: "Digital Research Center of Sfax (CRNS), Laboratory SM@RTS, Sfax, Tunisia"
+    email: "lamia.chaari@isims.usf.tn"
+keywords:
+  - water distribution network
+  - cyber-physical security
+  - IoT dataset
+  - EPANET-MSX
+  - false data injection
+  - anomaly detection
+  - data leakage
