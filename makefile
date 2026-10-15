@@ -8,17 +8,17 @@ simulate:
 	$(PYTHON) aquasense/run_simulation.py \
 	  --inp network/water_network.inp \
 	  --msx network/water_quality.msx \
-	  --out data/simulated_data.csv
+	  --out simulated_data.csv
 
 perturb:
 	$(PYTHON) -m aquasense.perturb --seed 42 \
-	  --in data/Real_data.csv --out data/attacked_data.csv
+	  --in Real_data.csv --out attacked_data.csv
 
 fuse:
 	$(PYTHON) aquasense/fuse.py \
-	  --real data/Real_data.csv \
-	  --sim data/simulated_data.csv \
-	  --out data/fused_dataset.csv
+	  --real Real_data.csv \
+	  --sim simulated_data.csv \
+	  --out fused_dataset.csv
 
 benchmark:
 	$(PYTHON) benchmark/run_t1.py
@@ -26,4 +26,4 @@ benchmark:
 	$(PYTHON) benchmark/run_t4.py
 
 clean:
-	rm -f data/simulated_data.csv data/attacked_data.csv data/fused_dataset.csv
+	rm -f simulated_data.csv attacked_data.csv fused_dataset.csv
