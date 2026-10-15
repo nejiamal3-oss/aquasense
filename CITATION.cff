@@ -3,11 +3,11 @@ message: "If you use this dataset or code, please cite it as below."
 type: dataset
 title: "AquaSense-ICS: A Hybrid Real-Simulated Cyber-Physical Dataset and Leakage-Aware Benchmark for Smart Water Quality Monitoring and Attack Detection"
 version: "1.0"
-doi: 10.5281/zenodo.xxxxxxx
-date-released: 2026-10-13
+doi: 10.5281/zenodo.23390541
+date-released: 2026-10-15
 license: CC-BY-4.0
-repository-code: "https://github.com/<votre-user>/aquasense-ics"
-url: "https://doi.org/10.5281/zenodo.xxxxxxx"
+repository-code: "https://github.com/nejiamal3-oss/aquasense"
+url: "https://doi.org/10.5281/zenodo.23390541"
 authors:
   - family-names: Neji
     given-names: Amal
