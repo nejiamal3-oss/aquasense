@@ -1,5 +1,8 @@
 # Datasheet for AquaSense-ICS (v1.0)
 
+**Dataset DOI:** https://doi.org/10.5281/zenodo.23390541
+**Code repository:** https://github.com/nejiamal3-oss/aquasense
+
 Following the template of Gebru et al. (2021), "Datasheets for Datasets".
 
 ## 1. Motivation
@@ -117,8 +120,8 @@ domain-adaptation research.
 ## 6. Distribution
 
 **How is it distributed?**
-Zenodo (DOI https://doi.org/10.5281/zenodo.xxxxxxx) and GitHub
-(https://github.com/<votre-user>/aquasense-ics).
+Zenodo (DOI https://doi.org/10.5281/zenodo.23390541) and GitHub
+(https://github.com/nejiamal3-oss/aquasense).
 
 **License**
 Data: CC BY 4.0. Code: MIT.
@@ -134,4 +137,8 @@ same Zenodo concept DOI, with an unchanged schema. Errata are listed in the
 repository.
 
 **Citation**
-See `CITATION.cff`.
+Neji, A., Fourati, M., Chaari Fourati, L. (2026). *AquaSense-ICS: A Hybrid
+Real-Simulated Cyber-Physical Dataset and Leakage-Aware Benchmark for Smart
+Water Quality Monitoring and Attack Detection* [Data set]. Zenodo.
+https://doi.org/10.5281/zenodo.23390541
+See also `CITATION.cff`.
