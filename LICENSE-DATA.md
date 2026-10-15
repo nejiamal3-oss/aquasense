@@ -2,6 +2,8 @@
 
 Copyright (c) 2026 Amal Neji, Mohamed Fourati, Lamia Chaari Fourati
 
+**Dataset DOI:** https://doi.org/10.5281/zenodo.23390541
+
 The **data** of the AquaSense-ICS dataset are released under the
 Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
@@ -44,7 +46,7 @@ under the MIT License (see `LICENSE`).
 Neji, A., Fourati, M., Chaari Fourati, L. (2026). *AquaSense-ICS: A
 Hybrid Real-Simulated Cyber-Physical Dataset and Leakage-Aware Benchmark
 for Smart Water Quality Monitoring and Attack Detection* [Data set].
-Zenodo. https://doi.org/10.5281/zenodo.xxxxxxx
+Zenodo. https://doi.org/10.5281/zenodo.23390541
 
 ## Full license text
 
