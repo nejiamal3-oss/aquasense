@@ -1,0 +1,127 @@
+[TITLE]
+Scenario combine ameliore - Attaques multiples avec reactions couplees
+
+[SPECIES]
+BULK  Cl   MG
+BULK  PH   -
+BULK  TURB NTU
+BULK  DO   MG
+BULK  COND uS/cm
+BULK  THM  UG
+WALL  ClD  MG
+
+[COEFFICIENTS]
+CONSTANT k_cl    0.10
+CONSTANT k_ph    0.01
+CONSTANT k_turb  0.05
+CONSTANT k_do    0.02
+CONSTANT k_cond  0.03
+CONSTANT k_cl_do 0.005
+CONSTANT k_thm   0.008
+CONSTANT pH_nat  7.4
+CONSTANT k_wall  0.02
+
+[TERMS]
+DecayCl    -k_cl * Cl - k_cl_do * Cl * DO
+DecayPH    -k_ph * (PH - pH_nat)
+DecayTURB  -k_turb * TURB
+DecayDO    -k_do * DO - k_cl_do * Cl * DO
+DecayCOND  -k_cond * COND
+FormTHM    k_thm * Cl
+
+[PIPES]
+RATE Cl    DecayCl
+RATE PH    DecayPH
+RATE TURB  DecayTURB
+RATE DO    DecayDO
+RATE COND  DecayCOND
+RATE THM   FormTHM
+RATE ClD   k_wall * Cl
+
+[TANKS]
+RATE Cl    DecayCl
+RATE PH    DecayPH
+RATE TURB  DecayTURB
+RATE DO    DecayDO
+RATE COND  DecayCOND
+RATE THM   FormTHM
+
+[QUALITY]
+; --- valeurs par defaut pour tous les noeuds (AJOUT) ---
+GLOBAL Cl   0.5
+GLOBAL PH   7.4
+GLOBAL TURB 0.5
+GLOBAL DO   8.0
+GLOBAL COND 380
+GLOBAL THM  0.0
+
+; --- Reservoir R1 ---
+NODE R1 Cl   1.0
+NODE R1 PH   7.4
+NODE R1 TURB 0.5
+NODE R1 DO   9.0
+NODE R1 COND 380
+NODE R1 THM  0.0
+
+; --- Reservoir R2 (AJOUT) ---
+NODE R2 Cl   0.8
+NODE R2 PH   7.4
+NODE R2 TURB 0.5
+NODE R2 DO   8.0
+NODE R2 COND 380
+NODE R2 THM  0.0
+
+; --- Nœuds intermediaires ---
+NODE J1 Cl   0.8
+NODE J1 PH   7.3
+NODE J1 DO   8.5
+NODE J3 Cl   0.6
+NODE J3 PH   7.2
+NODE J3 DO   8.0
+NODE J7 Cl   0.5
+NODE J7 PH   7.1
+NODE J7 DO   7.5
+
+; --- Perturbations initiales ---
+NODE J2 Cl   5.0
+NODE J2 THM  0.0
+NODE J5 TURB 10.0
+NODE J5 DO   5.0
+NODE J9 COND 1500.0
+NODE J9 PH   6.5
+
+[SOURCES]
+; --- INJECTIONS (AJOUT) : type  noeud  espece  intensite  pattern ---
+SETPOINT J3 Cl    5.0   ATTACK_J3
+SETPOINT J7 TURB  10.0  ATTACK_J7
+
+[PATTERNS]
+; pas de temps = pas des patterns du .inp (1 h)
+; ATTACK_J3 : Cl a 5 mg/L de 6:00 a 8:00 (2 h)
+ATTACK_J3 0 0 0 0 0 0 1 1 0 0 0 0
+ATTACK_J3 0 0 0 0 0 0 0 0 0 0 0 0
+; ATTACK_J7 : TURB a 10 NTU de 14:00 a 16:00 (2 h)
+ATTACK_J7 0 0 0 0 0 0 0 0 0 0 0 0
+ATTACK_J7 0 0 1 1 0 0 0 0 0 0 0 0
+
+[OPTIONS]
+AREA_UNITS M2
+RATE_UNITS HR
+SOLVER     RK5
+COUPLING   NONE
+TIMESTEP   300
+RTOL       0.001
+ATOL       0.01
+
+[REPORT]
+NODES ALL
+LINKS ALL
+SPECIE Cl   YES
+SPECIE PH   YES
+SPECIE TURB YES
+SPECIE DO   YES
+SPECIE COND YES
+SPECIE THM  YES 6
+SPECIE ClD  YES
+
+[END]
