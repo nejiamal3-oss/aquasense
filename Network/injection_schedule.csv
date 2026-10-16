@@ -1,0 +1,3 @@
+source_id,node,species,type,strength,unit,start_h,end_h,start_s,end_s,note
+S1,J3,Cl,SETPOINT,5.0,mg/L,6,8,21600,28800,chlorine pulse; visible in hourly report at 07:00 and 08:00
+S2,J7,TURB,SETPOINT,10.0,NTU,14,16,50400,57600,turbidity pulse; visible in hourly report at 15:00 and 16:00
