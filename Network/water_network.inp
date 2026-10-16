@@ -1,0 +1,193 @@
+[TITLE]
+
+
+[JUNCTIONS]
+;ID              	Elev        	Demand      	Pattern         
+ J1              	10          	5           	P1              	;
+ J2              	12          	6           	P1              	;
+ J3              	8           	4           	P1              	;
+ J4              	15          	7           	P1              	;
+ J5              	9           	5.5         	                	;
+ J6              	11          	6.5         	P1              	;
+ J7              	13          	7           	                	;
+ J8              	10          	5           	P1              	;
+ J9              	12          	6.5         	                	;
+ J10             	12          	7           	P1              	;
+
+[RESERVOIRS]
+;ID              	Head        	Pattern         
+ R1              	100         	                	;
+ R2              	80          	                	;
+
+[TANKS]
+;ID              	Elevation   	InitLevel   	MinLevel    	MaxLevel    	Diameter    	MinVol      	VolCurve        	Overflow
+ T1              	50          	10          	5           	20          	15          	0           	                	;
+
+[PIPES]
+;ID              	Node1           	Node2           	Length      	Diameter    	Roughness   	MinorLoss   	Status
+ P1              	R1              	J1              	1000        	300         	100         	0           	Open  	;
+ P2              	J1              	J2              	1000        	300         	100         	0           	Open  	;
+ P3              	J2              	J3              	1000        	300         	100         	0           	Open  	;
+ P4              	J3              	J4              	1000        	300         	100         	0           	Open  	;
+ P5              	J4              	J5              	1000        	300         	100         	0           	Open  	;
+ P6              	J5              	J6              	1000        	300         	100         	0           	Open  	;
+ P7              	J6              	J7              	1000        	300         	100         	0           	Open  	;
+ P8              	J7              	J8              	1000        	300         	100         	0           	Open  	;
+ P9              	J8              	J9              	1000        	300         	100         	0           	Open  	;
+ P10             	J9              	J10             	1000        	300         	100         	0           	Open  	;
+ P11             	J10             	R2              	1000        	300         	100         	0           	Open  	;
+ P12             	J2              	J5              	1200        	300         	100         	0           	Open  	;
+ P13             	J4              	J7              	1200        	300         	100         	0           	Open  	;
+ P14             	J3              	J8              	1200        	300         	100         	0           	Open  	;
+ P15             	J6              	T1              	500         	250         	100         	0           	Open  	;
+ P16             	T1              	J7              	500         	250         	100         	0           	Open  	;
+ P17             	J1              	J4              	1200        	300         	100         	0           	Open  	;
+
+[PUMPS]
+;ID              	Node1           	Node2           	Parameters
+ PU1             	R2              	J5              	POWER 50	;
+
+[VALVES]
+;ID              	Node1           	Node2           	Diameter    	Type	Setting     	MinorLoss   
+ V1              	J3              	J6              	200         	PRV 	10          	0           	;
+ V2              	J7              	J9              	200         	TCV 	3           	0           	;
+
+[TAGS]
+
+[DEMANDS]
+;Junction        	Demand      	Pattern         	Category
+
+[STATUS]
+;ID              	Status/Setting
+
+[PATTERNS]
+;ID              	Multipliers
+;
+ P1              	1.0         	1.2         	1.5         	1.3         	1.1         	0.9         
+ P1              	0.8         	0.7         	0.8         	1.0         	1.2         	1.4         
+;
+ P2              	0           	0           	1           	2           	3           	2           
+ P2              	1           	0           	0           	0           	0           	0           
+
+[CURVES]
+;ID              	X-Value     	Y-Value
+
+[CONTROLS]
+
+
+[RULES]
+
+
+[ENERGY]
+ Global Efficiency  	75
+ Global Price       	0
+ Demand Charge      	0
+
+[EMITTERS]
+;Junction        	Coefficient
+
+[QUALITY]
+;Node            	InitQual
+ J1              	0.2
+ J2              	0.2
+ J3              	0.2
+ J4              	0.2
+ J5              	0.2
+ J6              	0.2
+ J7              	0.2
+ J8              	0.2
+ J9              	0.2
+ J10             	0.2
+ R1              	1.0
+ R2              	1.0
+ T1              	0.5
+
+[SOURCES]
+;Node            	Type        	Quality     	Pattern
+ J2              	CONCEN      	2.0         	
+ J5              	CONCEN      	5           	P2
+ J7              	CONCEN      	1.5         	P2
+ J9              	CONCEN      	3           	P1
+
+[REACTIONS]
+;Type     	Pipe/Tank       	Coefficient
+
+
+[REACTIONS]
+ Order Bulk            	1
+ Order Tank            	1
+ Order Wall            	1
+ Global Bulk           	-0.5
+ Global Wall           	-0.1
+ Limiting Potential    	0
+ Roughness Correlation 	0
+
+[MIXING]
+;Tank            	Model
+
+[TIMES]
+ Duration           	24:00 
+ Hydraulic Timestep 	1:00 
+ Quality Timestep   	1:00 
+ Pattern Timestep   	1:00 
+ Pattern Start      	0:00 
+ Report Timestep    	1:00 
+ Report Start       	0:00 
+ Start ClockTime    	12 am
+ Statistic          	NONE
+
+[REPORT]
+ Status             	No
+ Summary            	No
+ Page               	0
+
+[OPTIONS]
+ Units              	LPS
+ Headloss           	H-W
+ Specific Gravity   	1
+ Viscosity          	1
+ Trials             	40
+ Accuracy           	0.001
+ CHECKFREQ          	2
+ MAXCHECK           	10
+ DAMPLIMIT          	0
+ Unbalanced         	Continue 10
+ Pattern            	P1
+ Demand Multiplier  	1.0
+ Emitter Exponent   	0.5
+ Quality            	Chemical mg/L
+ Diffusivity        	1
+ Tolerance          	0.01
+
+[COORDINATES]
+;Node            	X-Coord           	Y-Coord
+J1              	3401.709          	8717.949          
+J2              	6547.009          	8461.538          
+J3              	7470.085          	7521.368          
+J4              	8256.410          	5658.120          
+J5              	7418.803          	3470.085          
+J6              	5931.624          	6256.410          
+J7              	4444.444          	7213.675          
+J8              	5401.709          	4341.880          
+J9              	3418.803          	4803.419          
+J10             	2495.726          	6991.453          
+R1              	444.444           	8649.573          
+R2              	0.000             	4410.256          
+T1              	6666.667          	2752.137          
+
+[VERTICES]
+;Link            	X-Coord           	Y-Coord
+P3              	7487.179          	7487.179          
+P11             	307.692           	4683.761          
+P11             	256.410           	4666.667          
+
+[LABELS]
+;X-Coord             Y-Coord             Label & Anchor Node
+
+[BACKDROP]
+  DIMENSIONS  	0.000             	0.000             	10000.000         	10000.000         
+ UNITS          	None
+ FILE           	
+ OFFSET         	0.00            	0.00            
+
+[END]
