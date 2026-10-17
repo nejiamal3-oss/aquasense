@@ -145,14 +145,15 @@ Dataset (Zenodo, v1):
 }
 ```
 
-Article (add the DOI once available):
+Article (under review at *Measurement*; add the DOI once available):
 
 ```bibtex
 @article{neji2026aquasense,
   title   = {AquaSense-ICS: A Hybrid Real--Simulated Cyber-Physical Dataset and Leakage-Aware Benchmark for Smart Water Quality Monitoring and Attack Detection},
   author  = {Neji, Amal and Fourati, Mohamed and Chaari Fourati, Lamia},
-  journal = {Internet of Things},
+  journal = {Measurement},
   year    = {2026},
+  note    = {Under review},
   doi     = {to be added}
 }
 ```
