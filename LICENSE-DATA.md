@@ -14,7 +14,6 @@ This license applies to the data files of the dataset:
 - `Real_data.csv`
 - `simulated_data.csv`
 - `synthetic_data.csv`
-- `attacked_data.csv`
 - `augmented_data.csv`
 - `fused_dataset.csv`
 - `dictionary.csv`
