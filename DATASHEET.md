@@ -5,14 +5,18 @@
 
 Following the template of Gebru et al. (2021), "Datasheets for Datasets".
 
+**Modifications:** this copy differs from the original release:
+`attacked_data.csv` has been removed and `fused_dataset.csv` has been renamed
+`fused_data.csv`.
+
 ## 1. Motivation
 
 **Why was the dataset created?**
 Machine-learning research on water cyber-physical systems is limited by
 datasets that are either real but chemically poor, or simulated but free of
 sensing noise and attacks. AquaSense-ICS co-registers a real edge-sensing
-stream with a multi-species EPANET-MSX network simulation, adds a seeded
-library of attacks and faults with sample-level labels, and provides a
+stream with a multi-species EPANET-MSX network simulation, provides a seeded
+generator of attacks and faults with sample-level labels, and provides a
 leakage-aware benchmark.
 
 **Who created it?**
@@ -38,13 +42,15 @@ To be completed (funding sources).
 | Real_data.csv | 23,688 |
 | simulated_data.csv | 24 |
 | synthetic_data.csv | 23,688 |
-| fused_dataset.csv | 47,376 (23,688 real + 23,688 TimeGAN) |
-| attacked_data.csv | 147,128 |
+| fused_data.csv | 47,376 (23,688 real + 23,688 TimeGAN) |
 | augmented_data.csv | 23,688 |
 
+`attacked_data.csv` is not distributed in this copy. It can be regenerated
+with `aquasense.perturb`.
+
 **What labels exist?**
-- `attack_type`: none, FDI, FDI-stealth, replay, DoS, drift (from the seeded
-  generator).
+- `attack_type`: none, FDI, FDI-stealth, replay, DoS, drift (produced by the
+  seeded generator; not distributed as a file in this copy).
 - `fault_type`: none, white noise, spike, extreme (from the generator).
 - `quality_final`: Poor / Good / Very Good (rule-based, regulatory thresholds).
 - The legacy label `qualite` is kept for backward compatibility only and is
@@ -79,7 +85,9 @@ injections: chlorine at J3 (06:00-08:00) and turbidity at J7 (14:00-16:00).
 
 **How were attacks and faults generated?**
 By a seeded generator (`aquasense.perturb`): FDI, stealthy FDI, replay, DoS,
-drift; white noise, spikes, extreme values. Data-level injection only.
+drift; white noise, spikes, extreme values. Data-level injection only. The
+resulting attacked table is not distributed in this copy and must be
+regenerated with the code if needed.
 
 ## 4. Preprocessing
 
@@ -95,8 +103,9 @@ drift; white noise, spikes, extreme values. Data-level injection only.
 ## 5. Uses
 
 **Intended uses**
-Benchmarking anomaly and attack detectors, forecasting, synthetic-data and
-domain-adaptation research.
+Benchmarking anomaly detectors, forecasting, synthetic-data and
+domain-adaptation research. Attack-detection benchmarks require regenerating
+the attacked data with `aquasense.perturb`.
 
 **Not intended**
 - Drawing physical conclusions from relations between real and simulated
@@ -110,8 +119,8 @@ domain-adaptation research.
 - Only TDS is measured in the water; temperature, humidity and gas resistance
   describe ambient air.
 - Water-quality labels are rule-based, not validated by laboratory samples.
-- Attacks are injected into recorded data, without closed-loop physical
-  consequences.
+- Attacks (when regenerated) are injected into recorded data, without
+  closed-loop physical consequences.
 - Under the leakage-aware protocol, some tasks are only partly feasible
   (for example, the chronological test split contains only normal and replay
   windows).
