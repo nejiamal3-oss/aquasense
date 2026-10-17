@@ -15,7 +15,7 @@ This license applies to the data files of the dataset:
 - `simulated_data.csv`
 - `synthetic_data.csv`
 - `augmented_data.csv`
-- `fused_dataset.csv`
+- `fused_data.csv`
 - `dictionary.csv`
 - `splits.json`
 - the EPANET / EPANET-MSX model files in `network/`
